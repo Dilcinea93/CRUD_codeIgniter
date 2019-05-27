@@ -21,7 +21,8 @@
             </thead>
             <tbody>
                <!-- Fila para modificar una tarea. -->
-               <tr v-for="tar in tareas">
+               <tr v-for="tar in tareas">  
+						<!-- Parece que es buena practica poner este track-by="$index" al lado del v-for.... Por una cuestion ahi ique de valores duplicados... Cuando te salga ese error, puedes probar poniendo esto. Aun no se que hace exactamente.-->
                   <td>
                      <input type="text" v-model="tar.titulo" />
                   </td>

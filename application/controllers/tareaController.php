@@ -24,7 +24,7 @@ class tareaController extends CI_Controller {
       ));
    }
    public function modificar_tarea(){
-      $this->tarea_model->modificar(array(
+      $this->tarea_model->actualizar(array(
          'id_tarea' => $this->request->id_tarea,
          'titulo' => $this->request->titulo,
          'descripcion' => $this->request->descripcion,

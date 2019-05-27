@@ -66,9 +66,9 @@ No se como pero yo escribi manualmente otra vez la ruta y ahora si me mostraba e
 el error me mostraba el query generado, lo copie y lo corri en phpmyadmin y es que en la clausula ON del inner join,  un campo era ambiguo. Solo hacia falta un punto (.) para unir esto:  e.id_estado    ESTABA ASI    e id_estado
 join('estados e','e.id_estado=t.id_estado')
 */
-// $route['crear_tarea']['post'] = 'tareaController/crear_tarea';
-// $route['modificar_tarea']['post'] = 'tareaController/modificar_tarea';
-// $route['eliminar_tarea']['post'] = 'tareaController/eliminar_tarea';
+ $route['crear_tarea']['post'] = 'tareaController/crear_tarea';
+$route['modificar_tarea']['post'] = 'tareaController/modificar_tarea';
+$route['eliminar_tarea']['post'] = 'tareaController/eliminar_tarea';
 
 /************************************ TAREAS **********************************/
 //$route['recuperar_estados']['get'] = 'tareaController/recuperar_estados';

@@ -12,15 +12,21 @@ var controlador_tareas = new Vue({
    methods: {
       recuperarEstados: function(){
          this.$http.get('recuperar_estados').then(function(respuesta){
-					 console.log("respuesta: "+respuesta);
+					// respuesta= respuesta.toString();
+					 console.log("respuesta: "+respuesta);  //Como hago que me devuelva un objeto y no  respuesta: [object Object]
+					 //alert(JSON.stringify(respuesta));   //te lo dejo aqui para que sepas como se hace el stringify. 
+					 //JSON stringify es como hacer un json decode, pero es una alternativa diferente a json_encode (que no sirve en VUE.js)
+					 //A modo de aclaración, [object Object] es la representación a string que tienen por defecto los objetos en JavaScript.
             this.estados = respuesta.body;
          }, function(){
             alert('No se han podido recuperar los estados.');
          });
       },
       recuperarTareas: function(){
+			console.log("Estas son las tareas: "+this.tareas);
          this.cargando_tareas = true;
          this.$http.get('recuperar_tareas').then(function(respuesta){
+				console.log(respuesta);
             this.tareas = respuesta.body;
             this.cargando_tareas = false;
          }, function(){
