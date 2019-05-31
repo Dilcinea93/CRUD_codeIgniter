@@ -18,14 +18,18 @@
 		}
 
 		public function actualizar($data){
-			return $this->db->update('tareas',array(
+				$this->db->where('id_tarea', $data['id_tarea']);
+				return $this->db->update('tareas',array(
 				'titulo'=>$data['titulo'],
 				'descripcion'=>$data['descripcion'],
-				'id_estado'=>$data['descripcion'],
+				'id_estado'=>$data['id_estado'],
 				'fecha_alta'=>date('Y-m-d H:i:s'),
 				'fecha_modificacion'=>date('Y-m-d H:i:s')
 			)
 			);
+
+			
+			echo "</br></br>";print_r($this->db->last_query()); echo "</br></br>";
 		}
 
 		public function listar(){
