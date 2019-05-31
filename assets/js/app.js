@@ -39,7 +39,7 @@ var controlador_tareas = new Vue({
             this.tarea_nueva.titulo = '';
             this.tarea_nueva.descripcion = '';
             this.recuperarTareas();
-         }, function(){
+         }, function(){  
             alert('No se ha podido crear la tarea.');
          });
       },

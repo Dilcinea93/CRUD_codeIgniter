@@ -17,7 +17,7 @@
 			);
 		}
 
-		public function actualizar($data){
+		public function actualizar($data){    //PARA VER QUE USA
 				$this->db->where('id_tarea', $data['id_tarea']);
 				return $this->db->update('tareas',array(
 				'titulo'=>$data['titulo'],
