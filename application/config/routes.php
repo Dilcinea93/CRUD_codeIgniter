@@ -70,11 +70,18 @@ join('estados e','e.id_estado=t.id_estado')
 $route['modificar_tarea']['post'] = 'tareaController/modificar_tarea';
 $route['eliminar_tarea']['post'] = 'tareaController/eliminar_tarea';
 
+/**************************************************************************** */
+
+/**************************************************************************** */
+
 /************************************ TAREAS **********************************/
 //$route['recuperar_estados']['get'] = 'tareaController/recuperar_estados';
 
 
-$route['(:any)'] = 'pages/view/$1';
+$route['medicinas/(:any)'] = 'pages/view/$1'; //index
+
+$route['p_inventario']['get']= 'medicinasController/recuperar_medicinas';
+ //index
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 

@@ -1,7 +1,7 @@
  <?php
 	class pages extends CI_Controller {
 
-		public function view($page = 'usuario')
+		public function view($page = 'inventario')
 		{
 			if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
         {
