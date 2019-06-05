@@ -81,7 +81,7 @@ $route['eliminar_tarea']['post'] = 'tareaController/eliminar_tarea';
 $route['medicinas/(:any)'] = 'pages/view/$1'; //medicinas/inventario,medicinas/registro_tension
 
 $route['p_inventario']['get']= 'medicinasController/recuperar_medicinas';
-$route['p_tension']['get']= 'medicinasController/listaTension';
+$route['p_tension']['get']= 'medicinasController/registroTension';
 
 $route['p_tension']['get']= 'medicinasController/registroTension';
  //index
