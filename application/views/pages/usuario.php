@@ -59,6 +59,12 @@
             </tbody>
          </table>
       </form>
-   </div>
+	</div>
+	
+	
+	<script type="text/javascript" src="<?php echo base_url() ?>assets/js/vue/vue.js"></script>
+		<script type="text/javascript" src="<?php echo base_url() ?>assets/js/vue/vue-resource.js"></script>
+		
+		<script type="text/javascript" src="<?php echo base_url() ?>assets/js/app.js"></script>
 </body>
 </html>

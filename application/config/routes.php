@@ -78,9 +78,12 @@ $route['eliminar_tarea']['post'] = 'tareaController/eliminar_tarea';
 //$route['recuperar_estados']['get'] = 'tareaController/recuperar_estados';
 
 
-$route['medicinas/(:any)'] = 'pages/view/$1'; //index
+$route['medicinas/(:any)'] = 'pages/view/$1'; //medicinas/inventario,medicinas/registro_tension
 
 $route['p_inventario']['get']= 'medicinasController/recuperar_medicinas';
+$route['p_tension']['get']= 'medicinasController/listaTension';
+
+$route['p_tension']['get']= 'medicinasController/registroTension';
  //index
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

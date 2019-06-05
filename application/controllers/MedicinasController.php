@@ -40,6 +40,19 @@ class MedicinasController extends CI_Controller {
       $this->tarea_model->eliminar(array(
          'id_tarea' => $this->request->id_tarea
       ));
-   }
+	}
+	
+	public function listaTension(){
+      $tension = $this->medicinas_model->listaTension();
+      echo json_encode($tension);
+	}
+	public function registroTension(){
+		$this->medicinas_model->insertar(array(
+         'id_tarea' => $this->request->id_tarea,
+         'titulo' => $this->request->titulo,
+         'descripcion' => $this->request->descripcion,
+         'id_estado' => $this->request->id_estado
+      ));
+	}
 }
 ?>

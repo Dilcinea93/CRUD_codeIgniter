@@ -8,7 +8,15 @@ var controlador_tareas = new Vue({
       },
       estados: [],
       tareas: []
-   },
+	},
+	computed: {
+		classObject: function () {
+		  return {
+			 active: this.isActive && !this.error,
+			 'text-danger': this.error && this.error.type === 'fatal'
+		  }
+		}
+	 },
    methods: {
       recuperarEstados: function(){
          this.$http.get('recuperar_estados').then(function(respuesta){

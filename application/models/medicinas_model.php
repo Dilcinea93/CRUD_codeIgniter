@@ -6,13 +6,12 @@
 		Verificar si el ID ya existe.
 		*/
 		public function insertar($data){
-			$this->db->insert('tareas',array(
-				'titulo'=>$data['titulo'],
-				'descripcion'=>$data['descripcion'],
-				'id_estado'=>1,
-				'fecha_alta'=>date('Y-m-d H:i:s'),
-				'fecha_modificacion'=>date('Y-m-d H:i:s'),
-				'fecha_baja'=>null
+			$this->db->insert('tension',array(
+				'fecha'=>$data['fecha'],
+				'hora'=>$data['hora'],
+				'alta'=>$data['alta'],
+				'baja'=>$data['baja'],
+				'pulso'=>$data['pulso']
 				)
 			);
 		}
@@ -50,6 +49,13 @@
          ->update('tareas', array(
          'fecha_baja' => date('Y-m-d H:i:s')
       ));
-   }
+	 }
+	 
+	 public function listaTension(){
+		return $this->db->select('t.id, t.fecha,t.hora,t.alta,t.baja,t.pulso')
+		->from('tension t')
+		->get()
+		->result();
+	 }
 	}
 ?>
