@@ -11,16 +11,16 @@ var controlador_tension = new Vue({
 	},
 	methods: {
 		registroTension(){
-			this.$http.get('../p_tension').then(function(respuesta){
+			this.$http.get('../registro_tension').then(function(respuesta){
 				this.tension = respuesta.body;
 				;
+				console.log(respuesta);
 			},function(){
-				console.log("yoha ");
 			});
 		},
 		guardar(){
 
-			this.$http.post('../p_tension', this.registro_actual).then(function(){
+			this.$http.post('../lista_tension', this.registro_actual).then(function(){
 
 			})
 		},

@@ -21,6 +21,7 @@ class MedicinasController extends CI_Controller {
 			// me trae el mg_med
 		  // }
 			echo json_encode($tareas);
+			
    }
    public function crear_tarea(){
       $this->tarea_model->insertar(array(
@@ -55,7 +56,7 @@ class MedicinasController extends CI_Controller {
          'id_estado' => $this->request->id_estado
 		));
 		
-		$this->listaTension()
+		//$this->listaTension()
 	}
 }
 ?>

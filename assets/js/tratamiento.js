@@ -68,19 +68,19 @@ var controlador_medicinas = new Vue({
 		listar: function(){
 			this.$http.get('../p_inventario').then(function(respuesta){
 			this.medicinas = respuesta.body;
-			;
+			//var medicinas=this.medicinas;
+			console.log(respuesta);
+			// medicinas.forEach(function(v, i){ 
+			// 			var mg_med= JSON.parse(JSON.stringify(medicinas[i].mg_med)); //ME SIRVIOOO });
+			// 			var tratamiento_mg= JSON.parse(JSON.stringify(medicinas[i].tratamiento_mg));
+			// 			var dias_restantes= mg_med/tratamiento_mg;
+			// 			this.dias_restantes=dias_restantes;
+			// })
 
-			medicinas.forEach(function(v, i){ 
-						var mg_med= JSON.parse(JSON.stringify(medicinas[i].mg_med)); //ME SIRVIOOO });
-						var tratamiento_mg= JSON.parse(JSON.stringify(medicinas[i].tratamiento_mg));
-						var dias_restantes= mg_med/tratamiento_mg;
-						this.dias_restantes=dias_restantes;
-			})
-
-			this.dias_restantes(this.medicinas);
+			//this.dias_restantes(this.medicinas);
          }, function(){
             alert('Falló en encontrar los nombres de las medicinas.');
-						this.medicinas = respuesta.body;
+					//	this.medicinas = respuesta.body;
          }); 
 		},
 	},
