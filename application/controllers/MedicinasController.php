@@ -47,13 +47,15 @@ class MedicinasController extends CI_Controller {
       $tension = $this->medicinas_model->listaTension();
       echo json_encode($tension);
 	}
-	public function registroTension(){
+	public function saveregistroTension(){
 		/* VALIDA IF IS NOT NULL */
+		
 		$this->medicinas_model->insertar(array(
-         'id_tarea' => $this->request->id_tarea,
-         'titulo' => $this->request->titulo,
-         'descripcion' => $this->request->descripcion,
-         'id_estado' => $this->request->id_estado
+         'fecha' => $this->request->fecha,
+         'hora' => $this->request->hora,
+         'alta' => $this->request->alta,
+         'baja' => $this->request->baja,
+         'pulso' => $this->request->pulso,
 		));
 		
 		//$this->listaTension()

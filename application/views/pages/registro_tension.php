@@ -13,16 +13,19 @@
 						<th>BAJA</th>
 						<th>PULSO</th>
 					</tr>
-					<tr>
-						<td> HOY</td>
-						<td><?php echo date('y-m-d')?></td>
-						<td><?php echo  date('H:i:s')?></td>
-						<td><input type="text" id="alta"></td>
-						<td><input type="text" id="baja"></td>
-						<td><input type="text" id="pulso"></td>
-						<td><button class="btn btn-success" @click="guardar">Guardar</button></td>
-						<td><button class="btn btn-success" @click="modificar">Modificar</button></td>
-					</tr>
+					
+					<form action="javascript:void(0);">
+						<tr>
+							<td> HOY</td>
+							<td><input type="text" value="<?php echo date('y-m-d')?>"></td>
+							<td><input type="text" value="<?php echo  date('H:i:s')?>"></td>
+							<td><input type="text" id="alta" ></td>
+							<td><input type="text" id="baja"></td>
+							<td><input type="text" id="pulso" ></td>
+							<td><button class="btn btn-success" @click="guardar">Guardar</button></td>
+							<td><button class="btn btn-success" @click="modificar">Modificar</button></td>
+						</tr>
+					</form>
 					<tr v-for="ten in tension">
 
 					<td v-model="ten.nombre" v-bind:value="ten.nombre">{{ten.id}}</td>

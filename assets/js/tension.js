@@ -2,26 +2,25 @@ var controlador_tension = new Vue({
 	el: '#controlador_tension',
 	data:{
 		tension: [],
-		registro_actual: {				//Viene siendo un modelo, por lo tanto se puede referenciar con v-model, asi v-model="tarea_nueva.titulo"
-		fecha: '',
-		hora: '',
-		alta: '', baja:'',pulso:'',
-		descripcion: ''
- }
+		registro_actual: {
+			fecha: '',
+			hora: '',
+			alta: '', baja:'',pulso:''
+ 		}
 	},
 	methods: {
-		registroTension(){
-			this.$http.get('../registro_tension').then(function(respuesta){
+		listaTension(){
+			this.$http.get('../lista_tension').then(function(respuesta){
 				this.tension = respuesta.body;
 				;
-				console.log(respuesta);
 			},function(){
 			});
 		},
 		guardar(){
-
-			this.$http.post('../lista_tension', this.registro_actual).then(function(){
-
+			this.$http.post('../guarda_registro_tension', this.registro_actual).then(function(){
+				this.registro_actual.alta = '';
+				this.registro_actual.baja = '';
+				this.registro_actual.pulso = '';
 			})
 		},
 		modificar(){
@@ -29,6 +28,6 @@ var controlador_tension = new Vue({
 		}
 	},
 	created: function(){
-		 this.registroTension();
+		 this.listaTension();
 	}
 })

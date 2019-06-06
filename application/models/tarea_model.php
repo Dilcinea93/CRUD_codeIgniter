@@ -29,7 +29,6 @@
 			);
 
 			
-			echo "</br></br>";print_r($this->db->last_query()); echo "</br></br>";
 		}
 
 		public function listar(){

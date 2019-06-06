@@ -81,9 +81,11 @@ join('estados e','e.id_estado=t.id_estado')
  $route['medicinas/(:any)']['get'] = 'pages/view/$1'; //medicinas/inventario,medicinas/registro_tension
 
  $route['p_inventario']['get']= 'medicinasController/recuperar_medicinas';
- $route['registro_tension']['get']= 'medicinasController/listaTension';
+ $route['lista_tension']['get']= 'medicinasController/listaTension';
 
 $route['p_tension']['get']= 'medicinasController/registroTension';
+$route['guarda_registro_tension']['post']= 'medicinasController/saveregistroTension';
+
  //index
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

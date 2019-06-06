@@ -14,6 +14,8 @@
 				'pulso'=>$data['pulso']
 				)
 			);
+
+			echo "</br></br>";print_r($data);
 		}
 
 		public function actualizar($data){    //PARA VER QUE USA
