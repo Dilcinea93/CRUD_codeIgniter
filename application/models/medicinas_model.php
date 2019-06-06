@@ -14,23 +14,18 @@
 				'pulso'=>$data['pulso']
 				)
 			);
-
-			echo "</br></br>";print_r($data);
 		}
 
 		public function actualizar($data){    //PARA VER QUE USA
 				$this->db->where('id_tarea', $data['id_tarea']);
-				return $this->db->update('tareas',array(
-				'titulo'=>$data['titulo'],
-				'descripcion'=>$data['descripcion'],
-				'id_estado'=>$data['id_estado'],
-				'fecha_alta'=>date('Y-m-d H:i:s'),
-				'fecha_modificacion'=>date('Y-m-d H:i:s')
+				return $this->db->update('tension',array(
+					'fecha'=>$data['fecha'],
+					'hora'=>$data['hora'],
+					'alta'=>$data['alta'],
+					'baja'=>$data['baja'],
+					'pulso'=>$data['pulso']
 			)
 			);
-
-			
-			echo "</br></br>";print_r($this->db->last_query()); echo "</br></br>";
 		}
 
 		public function listar(){

@@ -55,10 +55,19 @@ class MedicinasController extends CI_Controller {
          'hora' => $this->request->hora,
          'alta' => $this->request->alta,
          'baja' => $this->request->baja,
-         'pulso' => $this->request->pulso,
+         'pulso' => $this->request->pulso
 		));
 		
 		//$this->listaTension()
 	}
+	public function modificarregistroTension(){
+      $this->medicinas_model->actualizar(array(
+         'fecha' => $this->request->fecha,
+         'hora' => $this->request->hora,
+         'alta' => $this->request->alta,
+         'baja' => $this->request->baja,
+         'pulso' => $this->request->pulso
+      ));
+   }
 }
 ?>

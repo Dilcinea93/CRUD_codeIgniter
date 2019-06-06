@@ -16,11 +16,59 @@
 	<button type="button" @click="deleteText">Borrar</button>
 	<p ref="textField"></p>
 </div> -->
+<script type="text/x-template" id="modal-template">
+  <transition name="modal">
+    <div class="modal-mask">
+      <div class="modal-wrapper">
+        <div class="modal-container">
+
+          <div class="modal-header">
+            <slot name="header">
+              default header
+            </slot>
+          </div>
+
+          <div class="modal-body">
+            <slot name="body">
+              default body
+            </slot>
+          </div>
+
+          <div class="modal-footer">
+            <slot name="footer">
+              default footer
+              <button class="modal-default-button" @click="$emit('close')">
+                OK
+              </button>
+            </slot>
+          </div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</script>
+
+<!-- app -->
+<div id="app">
+	<!-- use the modal component, pass in the prop -->
+	<button class="btn btn-success" id="show-modal" @click="showModal = true"><span class="glyphicon glyphicon-plus"></span>&nbsp;Agregar medicinas</button>
+  <modal v-if="showModal" @close="showModal = false">
+    <!--
+      you can use custom content here to overwrite
+      default content
+    -->
+		<h3 slot="header">Hacer que esto se vea como ventana modal. </h3>
+		<form action="javascript:void(0);" id="controlador_tension">
+				<label for="nombre">Nombre de medicina</label>
+				<input type="text" class="form-control">
+				<button type="submit" class="btn btn-success">Registrar</button>
+		</form>
+  </modal>
+</div>
+
 
 		<div id="controlador_inventario">
 
-		
-		<button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;Agregar medicinas</button>
 		<button class="btn btn-success"><a v-bind:href="inventario">Inventario</a></button>
 		<button class="btn btn-success"><a v-bind:href="registro_tension" v-on:click="registroTension()" id="tension" >Registro de tensión</a></button>
 	

@@ -23,8 +23,12 @@ var controlador_tension = new Vue({
 				this.registro_actual.pulso = '';
 			})
 		},
-		modificar(){
-
+		modificar(p_tension){
+			this.$http.post('../modificar_tension', p_tension).then(function(){
+				this.recuperarTareas();
+		 }, function(){
+				alert('No se ha podido modificar la tarea.');
+		 });
 		}
 	},
 	created: function(){

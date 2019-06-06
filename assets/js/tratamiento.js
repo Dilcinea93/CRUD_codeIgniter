@@ -24,13 +24,26 @@
 //  Vue.nextTick(function () {
 // 	vm.$el.textContent === 'new messageREAL' // verdadero
 //  })
+
+// register modal component
+Vue.component('modal', {
+  template: '#modal-template'
+})
+
+// start app
+new Vue({
+  el: '#app',
+  data: {
+    showModal: false
+  }
+})
+
 var controlador_medicinas = new Vue({
 	el: '#controlador_inventario',
 	data:{
 		medicina: {
 			nombre: '',
-			dias:4,
-			
+			dias:4
 		},
 		inventario: 'inventario',
 		registro_tension: 'registro_tension',

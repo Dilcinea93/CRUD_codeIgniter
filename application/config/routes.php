@@ -85,6 +85,8 @@ join('estados e','e.id_estado=t.id_estado')
 
 $route['p_tension']['get']= 'medicinasController/registroTension';
 $route['guarda_registro_tension']['post']= 'medicinasController/saveregistroTension';
+$route['modificar_tension']['post']= 'medicinasController/modificarregistroTension';
+
 
  //index
 $route['404_override'] = '';
