@@ -16,8 +16,9 @@
 			);
 		}
 
-		public function actualizar($data){    //PARA VER QUE USA
-				$this->db->where('id_tarea', $data['id_tarea']);
+		public function actualizar($data){
+			
+				$this->db->where('id', $data['id']);
 				return $this->db->update('tension',array(
 					'fecha'=>$data['fecha'],
 					'hora'=>$data['hora'],
@@ -53,6 +54,19 @@
 		->from('tension t')
 		->get()
 		->result();
+	 }
+	 public function listaMedicinas(){
+		return $this->db->select('m.nombre')
+		->from('medicinas m')
+		->get()
+		->result();
+	 }
+
+	 public function insertarmedicina($data){
+		$this->db->insert('medicinas',array(
+			'nombre'=>$data['nombre']
+			)
+		);
 	 }
 	}
 ?>

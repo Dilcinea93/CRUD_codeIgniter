@@ -2,7 +2,7 @@
 	<head></head>
 	<body>
 			<h2>Reporte de tensión arterial</h2>
-			<
+			
       <form action="javascript:void(0);" id="controlador_tension">
 				<table class="table bordered">
 					<tr>
@@ -15,22 +15,22 @@
 					</tr>
 					<tr>
 						<td>HOY</td>
-						<td><input type="text" value="<?php echo date('y-m-d')?>"></td>
-						<td><input type="text" value="<?php echo  date('H:i:s')?>"></td>
-						<td><input type="text" id="alta" ></td>
-						<td><input type="text" id="baja"></td>
-						<td><input type="text" id="pulso" ></td>
-						<td><button class="btn btn-success" @click="guardar">Guardar</button></td>
+						<td><input type="text" value="<?php echo date('y-m-d')?>" v-model="registro_actual.fecha"></td>
+						<td><input type="text" value="<?php echo  date('H:i:s')?>" v-model="registro_actual.hora"></td>
+						<td><input type="text" id="alta"  v-model="registro_actual.alta"> </td>
+						<td><input type="text" id="baja" v-model="registro_actual.baja"></td>
+						<td><input type="text" id="pulso"  v-model="registro_actual.pulso"></td>
+						<td><button class="btn btn-success" v-on:click="guardar()">Guardar</button></td>
 					</tr>
 
 					<tr v-for="ten in tension">
 
-					<td v-model="ten.nombre" v-bind:value="ten.nombre">{{ten.id}}</td>
-						<td v-model="ten.nombre" v-bind:value="ten.nombre">{{ten.fecha}}</td>
-					<td v-model="ten.hora" v-bind:value="ten.hora">{{ten.hora}}</td>
-						<td v-model="ten.nombre" v-bind:value="ten.nombre">{{ten.alta}}</td>
-						<td v-model="ten.nombre" v-bind:value="ten.nombre">{{ten.baja}}</td>
-						<td v-model="ten.nombre" v-bind:value="ten.nombre">{{ten.pulso}}</td>
+					<td><input type="text" v-model="ten.id" v-bind:value="ten.id" value={{ten.id}} "></td>
+						<td><input type="text" v-model="ten.fecha" v-bind:value="ten.fecha" value="{{ten.fecha}}"></td>
+					<td><input type="text" v-model="ten.hora" v-bind:value="ten.hora" value="{{ten.hora}}"></td>
+						<td><input type="text" v-model="ten.alta" v-bind:value="ten.alta" value="{{ten.alta}}"></td>
+						<td><input type="text" v-model="ten.baja" v-bind:value="ten.baja" value={{ten.baja}} "></td>
+						<td><input type="text" v-model="ten.pulso" v-bind:value="ten.pulso" value="{{ten.pulso}}"></td>
 						<td><button class="btn btn-warning" @click="modificar(ten)">Modificar</button></td>
 					</tr>
 				</table>

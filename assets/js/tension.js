@@ -3,6 +3,7 @@ var controlador_tension = new Vue({
 	data:{
 		tension: [],
 		registro_actual: {
+			id: '',
 			fecha: '',
 			hora: '',
 			alta: '', baja:'',pulso:''
@@ -24,10 +25,11 @@ var controlador_tension = new Vue({
 			})
 		},
 		modificar(p_tension){
+			console.log(p_tension);
 			this.$http.post('../modificar_tension', p_tension).then(function(){
 				this.recuperarTareas();
 		 }, function(){
-				alert('No se ha podido modificar la tarea.');
+				alert('No se ha podido modificar el registro.');
 		 });
 		}
 	},

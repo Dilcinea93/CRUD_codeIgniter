@@ -15,20 +15,13 @@ class MedicinasController extends CI_Controller {
    }
    public function recuperar_medicinas(){
 			$tareas = $this->medicinas_model->listar();
-
 			// foreach($tareas as $item){
 			// 	echo " MG item: ".$item->mg_med;
 			// me trae el mg_med
 		  // }
 			echo json_encode($tareas);
-			
    }
-   public function crear_tarea(){
-      $this->tarea_model->insertar(array(
-         'titulo' => $this->request->titulo,
-         'descripcion' => $this->request->descripcion
-      ));
-   }
+   
    public function modificar_tarea(){
       $this->tarea_model->actualizar(array(
          'id_tarea' => $this->request->id_tarea,
@@ -47,6 +40,20 @@ class MedicinasController extends CI_Controller {
       $tension = $this->medicinas_model->listaTension();
       echo json_encode($tension);
 	}
+	public function listamedicinas(){
+      $medicinas = $this->medicinas_model->listaMedicinas();
+      echo json_encode($medicinas);
+	}
+	public function newmedicina(){
+      $this->medicinas_model->insertarmedicina(array(
+         'nombre' => $this->request->nombremedicina
+      ));
+	}
+	public function guardacompra(){
+      $this->medicinas_model->insertarcompra(array(
+         'nombre' => $this->request->nombremedicina
+      ));
+   }
 	public function saveregistroTension(){
 		/* VALIDA IF IS NOT NULL */
 		
@@ -62,6 +69,8 @@ class MedicinasController extends CI_Controller {
 	}
 	public function modificarregistroTension(){
       $this->medicinas_model->actualizar(array(
+			
+         'id' => $this->request->id,
          'fecha' => $this->request->fecha,
          'hora' => $this->request->hora,
          'alta' => $this->request->alta,
