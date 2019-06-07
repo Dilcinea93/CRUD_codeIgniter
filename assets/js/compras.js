@@ -2,9 +2,10 @@ var controlador_compras= new Vue({
 	el: '#controlador_compras',
 	data: {
 		listamedicinas:[],
+		compras:[],
 		nuevacompra:{
 			fecha:'',
-			medicina: '',
+			//medicina: '',
 			mg: '',
 			cantidad_tabletas: '',
 			precio: '',
@@ -21,15 +22,27 @@ var controlador_compras= new Vue({
 				this.nuevacompra.precio= '',
 				this.nuevacompra.lugar= ''
 			})
+		},listaCompras(){
+			this.$http.get('../listacompras').then(function(respuesta){
+				this.compras = respuesta.body;
+				;
+			},function(){
+			});
 		},
 		lista_medicinas: function(){
 			this.$http.get('../listamedicinas').then(function(respuesta){
 				this.listamedicinas = respuesta.body;
-				console.log(respuesta);
+				var listamedicinas= this.listamedicinas;
+				listamedicinas.forEach(function(v, i){ 
+						var nombre= JSON.parse(JSON.stringify(listamedicinas[i].nombre)); //ME SIRVIOOO });
+						
+				console.log("compras.js (32)"+nombre);
+			})
 			});
 		}
 	},
 	created: function(){
 		this.lista_medicinas();
+		this.listaCompras();
 	}
 })

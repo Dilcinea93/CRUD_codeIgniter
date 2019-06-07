@@ -42,16 +42,27 @@ class MedicinasController extends CI_Controller {
 	}
 	public function listamedicinas(){
       $medicinas = $this->medicinas_model->listaMedicinas();
-      echo json_encode($medicinas);
+		echo json_encode($medicinas);
+		
+	}
+
+	public function listacompras(){
+      $compras = $this->medicinas_model->listaCompras();
+		echo json_encode($compras);
 	}
 	public function newmedicina(){
       $this->medicinas_model->insertarmedicina(array(
-         'nombre' => $this->request->nombremedicina
+         'nombre' => $this->request->nombremedicina,  //el atributo corresponde al atributo del modelo en el JS
       ));
 	}
 	public function guardacompra(){
       $this->medicinas_model->insertarcompra(array(
-         'nombre' => $this->request->nombremedicina
+         'fecha' => $this->request->fecha,
+         //'nombre' => $this->request->nombre,
+         'mg' => $this->request->mg,
+         'cantidad_tabletas' => $this->request->cantidad_tabletas,
+         'precio' => $this->request->precio,
+         'lugar' => $this->request->lugar
       ));
    }
 	public function saveregistroTension(){

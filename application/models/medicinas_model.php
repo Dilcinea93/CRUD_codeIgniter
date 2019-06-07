@@ -61,10 +61,28 @@
 		->get()
 		->result();
 	 }
+	 public function listaCompras(){
+		return $this->db->select('c.fecha')
+		->from('compras c')
+		->get()
+		->result();
+	 }
 
 	 public function insertarmedicina($data){
 		$this->db->insert('medicinas',array(
 			'nombre'=>$data['nombre']
+			)
+		);
+	 }
+
+	 public function insertarcompra($data){
+		$this->db->insert('compras',array(
+			'fecha'=>$data['fecha'],
+			//'nombre'=>$data['nombre'],
+			'mg_med'=>$data['mg'],
+			'cantidad_pastillas'=>$data['cantidad_tabletas'],
+			'precio'=>$data['precio'],
+			'lugar'=>$data['lugar']
 			)
 		);
 	 }
