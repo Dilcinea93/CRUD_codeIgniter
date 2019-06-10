@@ -15,9 +15,7 @@
 				)
 			);
 		}
-
 		public function actualizar($data){
-			
 				$this->db->where('id', $data['id']);
 				return $this->db->update('tension',array(
 					'fecha'=>$data['fecha'],
@@ -28,7 +26,6 @@
 			)
 			);
 		}
-
 		public function listar(){
 			 return $this->db->select('m.id_med, m.nombre,c.id_med,c.fecha,c.mg_med,c.cantidad_pastillas,t.tratamiento_mg')
 			->from('medicinas m')
@@ -43,10 +40,8 @@
 
 		public function eliminar($data){
       $this->db
-         ->where('id_tarea', $data['id_tarea'])
-         ->update('tareas', array(
-         'fecha_baja' => date('Y-m-d H:i:s')
-      ));
+         ->where('id_med', $data['id'])
+         ->delete('medicinas');
 	 }
 	 
 	 public function listaTension(){
@@ -62,12 +57,14 @@
 		->result();
 	 }
 	 public function listaCompras(){
-		return $this->db->select('c.fecha')
+		return $this->db->select('c.fecha,m.nombre,c.id_med,c.mg_med,c.cantidad_pastillas,c.precio,c.lugar')
 		->from('compras c')
+		->join('medicinas m','m.id_med=c.id_med')
 		->get()
 		->result();
+		// echo "</br></br>";print_r($this->db->last_query()); echo "</br></br>";
+			// die();
 	 }
-
 	 public function insertarmedicina($data){
 		$this->db->insert('medicinas',array(
 			'nombre'=>$data['nombre']
@@ -78,7 +75,7 @@
 	 public function insertarcompra($data){
 		$this->db->insert('compras',array(
 			'fecha'=>$data['fecha'],
-			//'nombre'=>$data['nombre'],
+			//'id_med'=>$data['id_med'],
 			'mg_med'=>$data['mg'],
 			'cantidad_pastillas'=>$data['cantidad_tabletas'],
 			'precio'=>$data['precio'],

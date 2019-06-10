@@ -15,25 +15,20 @@ class MedicinasController extends CI_Controller {
    }
    public function recuperar_medicinas(){
 			$tareas = $this->medicinas_model->listar();
-			// foreach($tareas as $item){
-			// 	echo " MG item: ".$item->mg_med;
-			// me trae el mg_med
-		  // }
+			
+			foreach($tareas as $item){
+				$mg_disponibles= $item->mg_med; //MG disponibles
+				$mg_recetados= $item->tratamiento_mg; //MG recetados
+				$dias_restantes= $mg_disponibles/$mg_recetados;
+				$item->dias_restantes=$dias_restantes;
+		  }
 			echo json_encode($tareas);
    }
    
-   public function modificar_tarea(){
-      $this->tarea_model->actualizar(array(
-         'id_tarea' => $this->request->id_tarea,
-         'titulo' => $this->request->titulo,
-         'descripcion' => $this->request->descripcion,
-         'id_estado' => $this->request->id_estado
-      ));
-   }
-   public function eliminar_tarea(){
-      $this->tarea_model->eliminar(array(
-         'id_tarea' => $this->request->id_tarea
-      ));
+	public function eliminar_medicina(){
+      $this->medicinas_model->eliminar(array(
+         'id' => $this->request->id_med
+		));
 	}
 	
 	public function listaTension(){
@@ -58,7 +53,7 @@ class MedicinasController extends CI_Controller {
 	public function guardacompra(){
       $this->medicinas_model->insertarcompra(array(
          'fecha' => $this->request->fecha,
-         //'nombre' => $this->request->nombre,
+         //'id_med' => $this->request->id_med,
          'mg' => $this->request->mg,
          'cantidad_tabletas' => $this->request->cantidad_tabletas,
          'precio' => $this->request->precio,

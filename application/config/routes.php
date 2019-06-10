@@ -89,6 +89,7 @@ $route['guarda_medicina']['post']= 'medicinasController/newmedicina';
 $route['guarda_compra']['post']= 'medicinasController/guardacompra';
 $route['modificar_tension']['post']= 'medicinasController/modificarregistroTension';
 $route['listamedicinas']['get']= 'medicinasController/listamedicinas';
+$route['eliminar_medicina']['post']= 'medicinasController/eliminar_medicina';
 $route['listacompras']['get']= 'medicinasController/listacompras';
 
 

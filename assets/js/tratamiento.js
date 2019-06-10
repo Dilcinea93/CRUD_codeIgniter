@@ -36,8 +36,9 @@ var controlador_medicinas = new Vue({
 		compras: 'compras',
 		inventario: 'inventario',
 		registro_tension: 'registro_tension',
+		eliminar_medicina: 'eliminar_medicina',
 		medicinas: [],
-		dias_restantes: 'No captura los dias restantes...',
+		dias_restantes: '',
 		message: '',
 
 		computed: {
@@ -47,20 +48,24 @@ var controlador_medicinas = new Vue({
 		 }
 	},
 	methods: {
-		descontar: function(){
-			//Descuenta una tableta en las horas espeficadas en el tratamiento
+		EliminarMedicina: function(med){
+			this.$http.post('../eliminar_medicina', med).then(function(){
+		 }, function(){
+				alert('No se ha podido modificar el registro.');
+		 });
 		},
 		listar: function(){
 			this.$http.get('../p_inventario').then(function(respuesta){
 			this.medicinas = respuesta.body;
 			var medicinas=this.medicinas;
 			console.log('tratamiento.js (58) '+respuesta);
-			medicinas.forEach(function(v, i){ 
-						var mg_med= JSON.parse(JSON.stringify(medicinas[i].mg_med)); //ME SIRVIOOO });
-						var tratamiento_mg= JSON.parse(JSON.stringify(medicinas[i].tratamiento_mg));
-						var dias_restantes= mg_med/tratamiento_mg;
-						this.dias_restantes=dias_restantes;
-			})
+			// medicinas.forEach(function(v, i){ 
+			// 			var mg_med= JSON.parse(JSON.stringify(medicinas[i].mg_med)); //ME SIRVIOOO });
+			// 			var tratamiento_mg= JSON.parse(JSON.stringify(medicinas[i].tratamiento_mg));
+			// 			var dias_restantes= mg_med/tratamiento_mg;
+			// 			var dias_restantes= this.dias_restantes=dias_restantes;
+			// 			console.log(dias_restantes);
+			// })
 
 			//this.dias_restantes(this.medicinas);
          }, function(){
