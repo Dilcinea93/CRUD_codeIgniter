@@ -1,6 +1,6 @@
 <html>
 	<head></head>
-	<body onLoad="setInterval('contador()',1000);">
+	<body >
 
 		<?php
 			// echo anchor('name_of_controller_file/function_name_if_any', 'Sign Out', array('class' => '', 'id' => ''));
@@ -44,7 +44,7 @@
 				<tr v-for="med in medicinas">
 					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.nombre}}</td>
 					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.tratamiento_mg}}</td>
-					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.cantidad_pastillas}}</td>
+					<td v-model="med.nombre" v-bind:value="med.nombre" >{{med.cantidad_pastillas}}</td>
 					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.mg_med}}</td>
 					<td >{{med.dias_restantes}}</td>
 					<td v-model="med.fecha" v-bind:value="med.fecha">{{med.fecha}}</td>
@@ -55,15 +55,11 @@
 		</div>
 
 <form>
-<label for="contador">Contador:</label><input type="text" id="contador">
+<label for="contador">Contador:</label><input type="text" id="t_disponible">
 </form>
 <script>
-	var cont = 0;
-function contador(){
-	var contador = document.getElementById("contador");
-	contador.value = cont;
-	cont++;
-}
+	
+
 </script>
 		<script type="text/javascript" src="<?php echo base_url() ?>assets/js/vue/vue.js"></script>
 		<script type="text/javascript" src="<?php echo base_url() ?>assets/js/vue/vue-resource.js"></script>
