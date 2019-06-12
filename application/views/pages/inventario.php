@@ -1,6 +1,6 @@
 <html>
 	<head></head>
-	<body>
+	<body onLoad="setInterval('contador()',1000);">
 
 		<?php
 			// echo anchor('name_of_controller_file/function_name_if_any', 'Sign Out', array('class' => '', 'id' => ''));
@@ -53,6 +53,18 @@
 				</tr>
 			</table>
 		</div>
+
+<form>
+<label for="contador">Contador:</label><input type="text" id="contador">
+</form>
+<script>
+	var cont = 0;
+function contador(){
+	var contador = document.getElementById("contador");
+	contador.value = cont;
+	cont++;
+}
+</script>
 		<script type="text/javascript" src="<?php echo base_url() ?>assets/js/vue/vue.js"></script>
 		<script type="text/javascript" src="<?php echo base_url() ?>assets/js/vue/vue-resource.js"></script>
 		
