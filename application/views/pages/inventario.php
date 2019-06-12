@@ -53,10 +53,24 @@
 				</tr>
 			</table>
 		</div>
-
 <form>
 <label for="contador">Contador:</label><input type="text" id="t_disponible">
+
 </form>
+
+<?php
+
+// $this->load->library('calendar');
+// echo  $this->calendar->generar(2006,6);	//Muestra un calendario del mes de junio de 2006, pero no se ve, no se porque
+
+// $ data  =  array ( 						Hace links para los dias 3. 7 , 13, 26-----
+// 	3   =>  'http://example.com/news/article/2006/06/03/' , 
+// 	7   =>  'http://example.com/news/article/2006/06/07 / ' , 
+// 	13  =>  ' http://example.com/news/article/2006/06/13/ ' , 
+// 	26  =>  ' http://example.com/news/article/2006/06/26/ ' 
+// );
+?>
+<?php  echo "Esta pagina cargó en un tiempo de  ". $this->benchmark-> elapsed_time (). "milisegundos </br></br> Consumo de memoria "; ?><?php  echo  $this->benchmark-> memory_usage ();?><br><br>{elapsed_time} { memory_usage }
 <script>
 	
 

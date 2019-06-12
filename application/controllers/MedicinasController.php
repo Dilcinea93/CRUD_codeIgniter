@@ -36,6 +36,21 @@ class MedicinasController extends CI_Controller {
       echo json_encode($tension);
 	}
 	public function listamedicinas(){
+		$this->benchmark->mark('dog');
+
+// Some code happens here
+
+$this->benchmark->mark('cat');
+
+// More code happens here
+
+$this->benchmark->mark('bird');
+
+echo $this->benchmark->elapsed_time('dog', 'cat');
+echo $this->benchmark->elapsed_time('cat', 'bird');
+echo $this->benchmark->elapsed_time('dog', 'bird');
+
+
       $medicinas = $this->medicinas_model->listaMedicinas();
 		echo json_encode($medicinas);
 		

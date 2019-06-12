@@ -1,3 +1,4 @@
+
 var controlador_new_medicinas = new Vue({
 	el: '#controlador_new_medicinas',
 	data:{
@@ -25,16 +26,17 @@ new Vue({
     showModal: false
   }
 })
-
+var dt = { a: 7 }
 var controlador_medicinas = new Vue({
 	el: '#controlador_inventario',
 	data:{
 		medicina: {
 			nombre: '',
 			dias:4,
-			polling:'',
-			tomada:''
+			polling:''
 		},
+		dt: dt,
+		tomada:'',
 		compras: 'compras',
 		inventario: 'inventario',
 		registro_tension: 'registro_tension',
@@ -50,13 +52,13 @@ var controlador_medicinas = new Vue({
 		 }
 	},
 	methods: {
-		descontar (cantidad_pastillas) {
+		descontar: function (cantidad_pastillas) {
 			this.polling = setInterval(() => {
 			//cont=0;
 			console.log("se ejecuto "+cantidad_pastillas);
 			var t_disponible = document.getElementById("t_disponible");
 			cantidad_pastillas--;
-			t_disponible.value = cantidad_pastillas;
+			t_disponible.value = dt;
 			}, 1000)
 		},
 		EliminarMedicina: function(med){
@@ -92,6 +94,7 @@ var controlador_medicinas = new Vue({
 		clearInterval(this.polling)
 	},
    created: function(){
+		console.log("a ver "+this.tomada);
 			this.listar();
 			// setInterval(() => {
 			// 	this.$store.dispatch('RETRIEVE_DATA_FROM_BACKEND')
