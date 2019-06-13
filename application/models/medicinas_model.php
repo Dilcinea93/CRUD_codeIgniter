@@ -27,7 +27,7 @@
 			);
 		}
 		public function listar(){
-			 return $this->db->select('m.id_med, m.nombre,c.id_med,c.fecha,c.mg_med,c.cantidad_pastillas,t.tratamiento_mg')
+			 return $this->db->select('m.id_med, t.hora,m.nombre,c.id_med,c.fecha,c.mg_med,c.cantidad_pastillas,t.tratamiento_mg')
 			->from('medicinas m')
 			->join('compras c','c.id_med=m.id_med')
 			->join('tratamiento t','t.id_med=m.id_med')

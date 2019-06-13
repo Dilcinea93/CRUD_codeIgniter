@@ -102,6 +102,7 @@ var controlador_medicinas = new Vue({
 			this.descontar(this.tomada);
 			//var contador= this.contador();
 		//	setInterval('this.contador()',1000);
+
    }
 })
 

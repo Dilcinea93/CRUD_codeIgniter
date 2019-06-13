@@ -34,6 +34,7 @@
 			<table class="table">
 				<tr>
 					<th scope="col">Nombre medicina</th>
+					<th scope="col">Horas</th>
 					<th scope="col">MG recetados</th>
 					<th scope="col">Cantidad disponible</th>
 					<th scope="col">MG disponibles</th>
@@ -43,6 +44,7 @@
 				</tr>
 				<tr v-for="med in medicinas">
 					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.nombre}}</td>
+					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.hora}}</td>
 					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.tratamiento_mg}}</td>
 					<td v-model="med.nombre" v-bind:value="med.nombre" >{{med.cantidad_pastillas}}</td>
 					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.mg_med}}</td>
