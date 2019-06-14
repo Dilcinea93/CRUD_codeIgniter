@@ -52,15 +52,19 @@ var controlador_medicinas = new Vue({
 		 }
 	},
 	methods: {
-		descontar: function (cantidad_pastillas) {
+		descontar: function () {
 			this.polling = setInterval(() => {
+console.log("skjdhs")
+			 this.$http.post('../descontar_cantidad_medicinas').then(function(){
+
+			 });
 			//cont=0;
-			console.log("se ejecuto "+cantidad_pastillas);
-			var t_disponible = document.getElementById("t_disponible");
-			cantidad_pastillas--;
-			t_disponible.value = dt;
-			}, 1000)
-		},
+			// var t_disponible = document.getElementById("t_disponible");
+			// cantidad_pastillas--;
+			// t_disponible.value = dt;
+			// }, 1000)
+		}, 1000)
+	},
 		EliminarMedicina: function(med){
 			this.$http.post('../eliminar_medicina', med).then(function(){
 		 }, function(){
@@ -74,7 +78,6 @@ var controlador_medicinas = new Vue({
 			var medicinas=this.medicinas;
 			console.log('tratamiento.js (58) '+respuesta);
 			
-			this.tomada="yoha";
 			// medicinas.forEach(function(v, i){ 
 			// 			var mg_med= JSON.parse(JSON.stringify(medicinas[i].mg_med)); //ME SIRVIOOO });
 			// 			var tratamiento_mg= JSON.parse(JSON.stringify(medicinas[i].tratamiento_mg));
@@ -94,12 +97,11 @@ var controlador_medicinas = new Vue({
 		clearInterval(this.polling)
 	},
    created: function(){
-		console.log("a ver "+this.tomada);
 			this.listar();
 			// setInterval(() => {
 			// 	this.$store.dispatch('RETRIEVE_DATA_FROM_BACKEND')
 			// }, 3000)
-			this.descontar(this.tomada);
+			this.descontar();
 			//var contador= this.contador();
 		//	setInterval('this.contador()',1000);
 

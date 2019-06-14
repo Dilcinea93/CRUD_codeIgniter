@@ -2,12 +2,15 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class MedicinasController extends CI_Controller {
    private $request;
+   private $restantes;
+   private $quedan;
    public function __construct(){
       parent::__construct();
       $this->load->model('medicinas_model');
       $this->load->model('tarea_model');
       $this->request = json_decode(file_get_contents('php://input'));
    }
+
    public function recuperar_estados(){
 	
       $estados = $this->user_model->listar();
@@ -17,10 +20,16 @@ class MedicinasController extends CI_Controller {
 			$tareas = $this->medicinas_model->listar();
 			
 			foreach($tareas as $item){
+
 				$mg_disponibles= $item->mg_med; //MG disponibles
+            $cada_cuanto= $item->cada; //cada cuanto
 				$mg_recetados= $item->tratamiento_mg; //MG recetados
+            $quedan= $item->cantidad_pastillas; //MG recetados
 				$dias_restantes= $mg_disponibles/$mg_recetados;
 				$item->dias_restantes=$dias_restantes;
+
+$this->quedan= $dias_restantes;
+            //$this->descontar_cantidad_medicinas($item->disponibles_ahora);
 		  }
 			echo json_encode($tareas);
    }
@@ -98,6 +107,15 @@ echo $this->benchmark->elapsed_time('dog', 'bird');
          'baja' => $this->request->baja,
          'pulso' => $this->request->pulso
       ));
+   }
+
+   public function descontar_cantidad_medicinas(){
+      echo "SO??".$this->restantes;
+           //  $this->restantes= $item->disponibles_ahora=$this->quedan-1;
+            
+      die();
+   }
+   public function actualizar_cantidad_medicinas(){
    }
 }
 ?>

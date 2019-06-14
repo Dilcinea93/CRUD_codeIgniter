@@ -91,6 +91,8 @@ $route['modificar_tension']['post']= 'medicinasController/modificarregistroTensi
 $route['listamedicinas']['get']= 'medicinasController/listamedicinas';
 $route['eliminar_medicina']['post']= 'medicinasController/eliminar_medicina';
 $route['listacompras']['get']= 'medicinasController/listacompras';
+$route['descontar_cantidad_medicinas']['post']= 'medicinasController/descontar_cantidad_medicinas';
+$route['actualizar_cantidad_medicinas']['get']= 'medicinasController/actualizar_cantidad_medicinas';
 
 
  //index

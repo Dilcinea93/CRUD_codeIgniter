@@ -33,20 +33,21 @@
 		
 			<table class="table">
 				<tr>
-					<th scope="col">Nombre medicina</th>
-					<th scope="col">Horas</th>
-					<th scope="col">MG recetados</th>
+					
 					<th scope="col">Cantidad disponible</th>
+					<th scope="col">Nombre medicina</th>
+					<th scope="col">Cada</th>
+					<th scope="col">MG recetados</th>
 					<th scope="col">MG disponibles</th>
 					<th scope="col">dias de tratamiento restantes</th>
 					<th scope="col">Fecha de compra</th>
 					<th scope="col">Eliminar medicina</th>
 				</tr>
 				<tr v-for="med in medicinas">
-					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.nombre}}</td>
-					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.hora}}</td>
+					<td v-model="med.nombre" v-bind:value="med.nombre" >{{med.disponibles_ahora}}</td>
+					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.nombre}} </td>
+					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.cada}} horas</td>
 					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.tratamiento_mg}}</td>
-					<td v-model="med.nombre" v-bind:value="med.nombre" >{{med.cantidad_pastillas}}</td>
 					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.mg_med}}</td>
 					<td >{{med.dias_restantes}}</td>
 					<td v-model="med.fecha" v-bind:value="med.fecha">{{med.fecha}}</td>
