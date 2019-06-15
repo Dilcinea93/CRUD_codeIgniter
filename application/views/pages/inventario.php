@@ -37,6 +37,8 @@
 					<th scope="col">Cantidad disponible</th>
 					<th scope="col">Nombre medicina</th>
 					<th scope="col">Cada</th>
+					<th scope="col">Tabletas diarias</th>
+					<th scope="col">Horario Sugerido</th>
 					<th scope="col">MG recetados</th>
 					<th scope="col">MG disponibles</th>
 					<th scope="col">dias de tratamiento restantes</th>
@@ -47,6 +49,11 @@
 					<td v-model="med.nombre" v-bind:value="med.nombre" >{{med.disponibles_ahora}}</td>
 					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.nombre}} </td>
 					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.cada}} horas</td>
+					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.diarias}} tabletas</td>
+					<!-- trucar este valor a solo la parte entera, excepto en carvedilol que debe decir 0.5 -->
+
+					<td v-model="med.nombre" v-bind:value="med.nombre"> {{med.hora_s}}</td>
+					<!-- convertir esa hora a formato 12 horas con am y pm-->
 					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.tratamiento_mg}}</td>
 					<td v-model="med.nombre" v-bind:value="med.nombre">{{med.mg_med}}</td>
 					<td >{{med.dias_restantes}}</td>
@@ -56,10 +63,6 @@
 				</tr>
 			</table>
 		</div>
-<form>
-<label for="contador">Contador:</label><input type="text" id="t_disponible">
-
-</form>
 
 <?php
 
@@ -73,11 +76,6 @@
 // 	26  =>  ' http://example.com/news/article/2006/06/26/ ' 
 // );
 ?>
-<?php  echo "Esta pagina cargó en un tiempo de  ". $this->benchmark-> elapsed_time (). "milisegundos </br></br> Consumo de memoria "; ?><?php  echo  $this->benchmark-> memory_usage ();?><br><br>{elapsed_time} { memory_usage }
-<script>
-	
-
-</script>
 		<script type="text/javascript" src="<?php echo base_url() ?>assets/js/vue/vue.js"></script>
 		<script type="text/javascript" src="<?php echo base_url() ?>assets/js/vue/vue-resource.js"></script>
 		

@@ -7,7 +7,7 @@
 				<table class="table bordered">
 					<tr>
 						<th>DIA</th>
-						<th>FECHA</th>
+						<th>FECHA (AAAA/MM/DD)</th>
 						<th>HORA</th>
 						<th>ALTA</th>
 						<th>BAJA</th>
@@ -15,7 +15,7 @@
 					</tr>
 					<tr>
 						<td>HOY</td>
-						<td><input type="text" value="<?php echo date('y-m-d')?>" v-model="registro_actual.fecha"></td>
+						<td><input type="text" value="<?php echo date('Y-m-d')?>" v-model="registro_actual.fecha"></td>
 						<td><input type="text" value="<?php echo  date('H:i:s')?>" v-model="registro_actual.hora"></td>
 						<td><input type="text" id="alta"  v-model="registro_actual.alta"> </td>
 						<td><input type="text" id="baja" v-model="registro_actual.baja"></td>

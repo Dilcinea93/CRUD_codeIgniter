@@ -5,11 +5,15 @@
       <form action="javascript:void(0);" id="controlador_compras">
 
 			<label for="fecha">Fecha</label>
-			<input type="text" value="<?php echo date('d-m-y')?>" v-model="nuevacompra.fecha">
+			<input type="text" value="<?php echo date('y-m-d')?>" v-model="nuevacompra.fecha">
 <label for="">Compra de: </label>
 		<select v-model="listamedicinas">
 			<!-- <option v-for="list in listamedicinas" track-by="$index" value="1">{{list.nombre}}</option> -->
-			<option track-by="$index" value="2">carvedilol</option>
+			<option track-by="$index" value="2">Aspirina</option>
+			<option track-by="$index" value="1">Valsartan</option>
+			<option track-by="$index" value="3">carvedilol</option>
+			<option track-by="$index" value="2">Nifedipino</option>
+			<option track-by="$index" value="2">Omeprazol</option>
 		</select>
 		<!-- Como hacer que el nombre seleccionado aqui llegue al modelo  nuevacompra.medicina ?-->
 

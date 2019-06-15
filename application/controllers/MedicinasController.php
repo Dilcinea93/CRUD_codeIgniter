@@ -25,10 +25,32 @@ class MedicinasController extends CI_Controller {
             $cada_cuanto= $item->cada; //cada cuanto
 				$mg_recetados= $item->tratamiento_mg; //MG recetados
             $quedan= $item->cantidad_pastillas; //MG recetados
-				$dias_restantes= $mg_disponibles/$mg_recetados;
+
+            $item->disponibles_ahora=$item->cantidad_pastillas;
+            $item->diarias= 24/$cada_cuanto;
+            $for_diarias=$item->diarias;
+				$dias_restantes= $item->disponibles_ahora/ $item->diarias;
 				$item->dias_restantes=$dias_restantes;
 
-$this->quedan= $dias_restantes;
+            for($i=0;$i<$for_diarias;$i++){ 
+
+            $Hora = Time() + (60 *60 * $cada_cuanto);//8 horas
+             $hora_sugerida= date('H:i a',$Hora).""; 
+
+            //    if($i!=0){
+            //       $horas_siguientes=$cada_cuanto*$i;
+            //       if($item->diarias!=1){
+                     $hora_sugerida.="/(+)".$cada_cuanto."  :FIN";
+                     $item->hora_s=$hora_sugerida;
+//                     echo $item->hora_s;
+            //          $hora1=$item->hora_s;
+            //       }
+            //       //$hora2= $hora1+$horas_siguientes;
+            //       //$item->hora_s.=$hora2;
+            //    }
+            }
+
+            $this->quedan= $dias_restantes;
             //$this->descontar_cantidad_medicinas($item->disponibles_ahora);
 		  }
 			echo json_encode($tareas);
@@ -110,10 +132,7 @@ echo $this->benchmark->elapsed_time('dog', 'bird');
    }
 
    public function descontar_cantidad_medicinas(){
-      echo "SO??".$this->restantes;
-           //  $this->restantes= $item->disponibles_ahora=$this->quedan-1;
-            
-      die();
+      
    }
    public function actualizar_cantidad_medicinas(){
    }

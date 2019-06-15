@@ -55,7 +55,7 @@ var controlador_medicinas = new Vue({
 		descontar: function () {
 			this.polling = setInterval(() => {
 console.log("skjdhs")
-			 this.$http.post('../descontar_cantidad_medicinas').then(function(){
+			 this.$http.post('../actualizar_cantidad_medicinas').then(function(){
 
 			 });
 			//cont=0;
