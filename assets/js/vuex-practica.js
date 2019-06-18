@@ -63,18 +63,49 @@ data: {
 	message: 'Hello',
 	firstName: 'Foo',
 	lastName: 'Bar',
-	anioactual:'2019'
+	anioactual:'2019',
+	condicion: false,
+	seen: true, 
+	isActive: false,
+	ok: true,
+	activeClass: 'active',
+  errorClass: 'text-danger',
+	// classObject: {
+  //   active: false,
+  //   'text-danger': false
+	// },
+	styleObject:{
+		color:'white',
+		backgroundColor:'#555',
+    fontSize: '13px'
+	}
 },
 store,	//accede al store creado con VUEX
 components: { Counter,Nombre },		//Usa el componente creado mas arriba
-template: `			
-	<div class="app">
-		<counter></counter>
-		<nombre></nombre>
-		<p>Computed reversed message: {{reversed}}</p>
-	</div>
-`,		//Define template que sera renderizado en el elemento seleccionado aqui.. #controlador_computado
+// template: `			
+// 	<div class="app">
+// 		<counter></counter>
+// 		<nombre></nombre>
+// 		<p>Computed reversed message: {{reversed}}</p>
+// 		<button @click="show_content">Mostrar contenido</button>
+// <div class="conf" v-if="condicion" style="background:pink;">
+// 	Este es un contenido
+// </div>
+// <h1 v-else>No</h1>
+// 	</div>
+// `,		//Define template que sera renderizado en el elemento seleccionado aqui.. #controlador_computado. Es una forma
+methods:{
+	toggle_content: function(){
+		this.condicion=true;
+	}
+},
 computed: {
+	classObject: function () {
+    return {
+      active: this.isActive && !this.error,
+      'text-danger': this.error && this.error.type === 'fatal',
+    }
+  },
 	reversed: function () {
 		// `this` apunta a la instancia de vm
 		return this.firstName.split('').reverse().join('')				//Accede a firstName y devuelve el nombre a la inversa
