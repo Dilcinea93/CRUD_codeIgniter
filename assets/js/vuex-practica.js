@@ -128,5 +128,47 @@ computed: {
 }
 })
 
+
+/******************COMPONENTE ******************** */
+
+
+Vue.component('todo-item', {
+  template: '\
+    <li>\
+      {{ title }}\
+      <button v-on:click="$emit(\'remove\')">X</button>\
+    </li>\
+  ',
+  props: ['title']
+})
+new Vue({
+  el: '#todo-list-example',
+  data: {numbers: [ 1, 2, 3, 4, 5 ],
+    newTodoText: '',
+    todos: [
+      'Do the dishes',
+      'Take out the trash',
+      'Mow the lawn'
+    ]
+	},
+	computed:{
+		evenNumbers: function(){
+			return this.numbers.filter(function(number){
+				return number%2===0
+			})
+		}
+	},
+  methods: {
+		even:function(numbers){
+			return numbers.filter(function(number){
+				return number %2 ===0
+			})
+		},
+    addNewTodo: function () {
+      this.todos.push(this.newTodoText)
+      this.newTodoText = ''
+    }
+  }
+})
 //store.commit('increment');  ejecuta la mutacion (cambio de estado de la app, incremento de una variable)
 console.log(store.state.count) // -> 1

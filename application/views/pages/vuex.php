@@ -6,6 +6,13 @@
 			padding:20px;
 			margin-top:30px;
 		}
+		#someElement p{
+    color: blue;
+}
+
+p important{
+    color: red;
+}
 	</style>
    <meta charset="utf-8" />
 	 <title> Lista de tareas </title>
@@ -16,18 +23,25 @@
 
 <body>
 
-<div id="app" >
+<div id="someElement" style="background:green;">
+	<p>ESTE ES EL P1 de someElement</p>
+	<p>ESTE ES EL P2 de someElement</p>
+	<p class="awesome">ESTE ES EL P3 de someElement</p>
+</div>
+
+<p class="awesome" style="color:pink;">ESTE ES Un p3 afuera</p>
+
+<div id="app">
 	<movie-card v-for="movie in movies"
 		:title="movie.title"
 		:image="movie.image"></movie-card>
-				
 </div>
 
 <!-- UTILIZANDO STYLEOBJECT -->
 <div id="controlador_computado" v-bind:style="styleObject">
 	<!-- UTILIZANDO PROPIEDAD COMPUTADA CLASSOBJECT  -->
 	<div class="col-s2" v-bind:class="classObject">	
-		<button v-on:click="seen = !seen">Mostrar contenido</button>
+		<button v-on:keyup.13="submit"="seen = !seen">Mostrar contenido</button>
 		<div class="info" v-if="seen">
 			Este es un contenido
 		</div>
@@ -90,6 +104,32 @@
 
 
 <!-- /************************************** -->
+
+LISTA DE tareas
+
+<div id="todo-list-example">
+  <input
+    v-model="newTodoText"
+    v-on:keyup.enter="addNewTodo"
+    placeholder="Add a todo"
+  >
+  <ul>
+    <li
+      is="todo-item"
+      v-for="(index,todo) in todos"
+      v-bind:title="todo"
+      v-on:remove="todos.splice(index, 1)"
+    ></li>
+	</ul>
+	
+	<h1>Reordenando un arreglo sin modificar o reestablecer los datos originales</h1>
+<h4>llamando a un metodo que devuelve un filtro del arreglo</h4>
+	<li v-for="n in even(numbers)">{{ n }}</li>
+
+	<h4>llamando a una propiedad computada que devuelve un filtro del arreglo</h4>
+	<li v-for="n in evenNumbers">{{ n }}</li>
+</div>
+
 </div>
 	
 
