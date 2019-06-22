@@ -35,12 +35,15 @@ var controlador_medicinas = new Vue({
 			dias:4,
 			polling:''
 		},
+		
 		dt: dt,
 		tomada:'',
 		compras: 'compras',
 		inventario: 'inventario',
 		registro_tension: 'registro_tension',
 		eliminar_medicina: 'eliminar_medicina',
+		registro_tratamiento: 'tratamiento',
+		estadisticas: 'estadisticas',
 		medicinas: [],
 		dias_restantes: '',
 		message: '',
@@ -52,6 +55,7 @@ var controlador_medicinas = new Vue({
 		 }
 	},
 	methods: {
+		
 		descontar: function () {
 			this.polling = setInterval(() => {
 console.log("skjdhs")
@@ -107,9 +111,3 @@ console.log("skjdhs")
 
    }
 })
-
-/**
- * Modal para crear registro de nueva medicina
- * reemplazar vue resource con axios
- * https://vuejs.org/v2/cookbook/adding-instance-properties.html#Real-World-Example-Replacing-Vue-Resource-with-Axios
- */

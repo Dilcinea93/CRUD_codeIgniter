@@ -2,8 +2,7 @@
 	class medicinas_model extends CI_Model{
 
 		/*
-		TAREA: Validar datos que se van a guardar
-		Verificar si el ID ya existe.
+		
 		*/
 		public function insertar($data){
 			$this->db->insert('tension',array(
@@ -12,6 +11,36 @@
 				'alta'=>$data['alta'],
 				'baja'=>$data['baja'],
 				'pulso'=>$data['pulso']
+				)
+			);
+		}
+
+		public function valid_username($str){
+			echo "PASO POR AQUI";
+			 if ($str == 'YOHANNA')
+                {
+                        $this->form_validation->set_message('valid_username', 'The {field} field can not be the word "yohanna"');
+                        /*el primer parametro el es mismo nombre de la funcion.. El segundo parametro es un mensaje de error personalizado..
+
+                        Yo no lo habia puesto el mismo nombre del campo y me salio un error ique unable to find error message for your field (address_check) algo asi... lo arregle con eso, pasandole como primer parametro el nombre de la funcion
+
+						Aunque ahora salio ique Unable to access an error message corresponding to your field name Username.(Anonymous function)
+
+                        */
+                        return FALSE;
+                }
+                else
+                {
+                        return TRUE;
+                }
+		}
+		public function insertartratamiento($data){
+			$this->db->insert('tratamiento',array(
+				'id_med'=>$data['id_med'],
+				'tratamiento_mg'=>$data['tratamiento_mg'],
+				'cada'=>$data['cada'],
+				'horario'=>$data['horario'],
+				'id_recetado'=>$data['id_recetado']
 				)
 			);
 		}
@@ -28,13 +57,17 @@
 		}
 		public function listar(){
 			 return $this->db->select('m.id_med, t.cada,m.nombre,c.id_med,c.fecha,c.mg_med,c.cantidad_pastillas,t.tratamiento_mg')
-			->from('medicinas m')
-			->join('compras c','c.id_med=m.id_med')
+			->from('compras c')
+			->join('medicinas m','c.id_med=m.id_med')
 			->join('tratamiento t','t.id_med=m.id_med')
+			//->group('c.id_med')
 			->get()
 			->result();
+
+//Con este query se suman la cantidad de pastillas disponibles.
+			// SELECT sum(c.cantidad_pastillas),`m`.`id_med`,`t`.`cada`, `m`.`nombre`, `c`.`id_med`, `c`.`fecha`, `c`.`mg_med`, `c`.`cantidad_pastillas`, `t`.`tratamiento_mg` from `compras` `c` join `tratamiento` `t` ON `t`.`id_med`=`c`.`id_med` JOIN `medicinas` `m` ON `c`.`id_med`=`m`.`id_med` group by c.id_med
 //No se porque esta consulta no me esta trayendo registros.. deberia traer de las tres tablas, almenos el registro numero 1 nadamas.... pero no.... Cuando le agrego la tercera tabla deja de funcionar.. Era porque la tercera tabla no tenia registros xD 
-			// echo "</br></br>";print_r($this->db->last_query()); echo "</br></br>";
+			 //echo "</br></br>";print_r($this->db->last_query()); echo "</br></br>";
 			// die();
 		}
 
@@ -75,7 +108,7 @@
 	 public function insertarcompra($data){
 		$this->db->insert('compras',array(
 			'fecha'=>$data['fecha'],
-			//'id_med'=>$data['id_med'],
+			'id_med'=>$data['id_med'],
 			'mg_med'=>$data['mg'],
 			'cantidad_pastillas'=>$data['cantidad_tabletas'],
 			'precio'=>$data['precio'],

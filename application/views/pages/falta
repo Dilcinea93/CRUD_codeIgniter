@@ -1,0 +1,30 @@
+Ajustar query para que sume la cantidad de pastillas
+
+Ajustar select para no ponerle los valores de las medicinas seteados.      (Ajusta integridad referencial al menos para el guardado)
+
+Ajustar horario sugerido en la seccion de compras y que de ahi se guarde en la DB, no que se calcule en la vista de inventario
+
+Refactorizar el codigo para hacer funciones que reciban parametros.
+
+Poner el JS en un header general y hacer que se cargue el script correspondiente a la vista (aplica algo como lo hacen en NOVO)
+
+Hacer las estadisticas
+
+Ajusta el template
+
+Haz ventana modal para registrar medicina y tratamiento.
+
+Ve porque no se actualiza la pagina al hacer click, como si no tuviera ajax
+
+Ajusta los dias de tratamiento restantes de acuerdo a los MG recetados y los disponibles, y de acuerdo a la cantidad disponible y a las tabletas diarias.
+
+reemplazar vue resource con axios
+ * https://vuejs.org/v2/cookbook/adding-instance-properties.html#Real-World-Example-Replacing-Vue-Resource-with-Axios
+ 
+ trucar el valor de Tabletas diarias a solo la parte entera, excepto en carvedilol que debe decir 0.5 y depende pues..
+
+ Convertir horas en formato 12 horas
+
+ Colocar el favicon en un header general
+
+ validar formularios
